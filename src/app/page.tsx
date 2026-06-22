@@ -96,8 +96,8 @@ const features = [
     num: "05",
   },
   {
-    title: "Pune Based Startup",
-    description: "Localized service, swift site visits, zero delays, and responsive post-installation support.",
+    title: "40+ Years of Expertise",
+    description: "Decades of engineering mastery, swift local site visits, zero delays, and trusted responsive support.",
     icon: Award,
     num: "06",
   },
@@ -190,7 +190,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-xs font-semibold text-primary max-w-fit"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping" />
-              <span>Premium Facade & Glazing Startup in Pune</span>
+              <span>40+ Years of Premium Facade & Glazing Experience</span>
             </motion.div>
 
             <motion.h1
@@ -270,7 +270,7 @@ export default function Home() {
               <div className="absolute inset-4 border border-primary/10 rounded-full animate-[spin_40s_linear_infinite] pointer-events-none" />
               
               {/* Glassmorphic Facade Frame Mockup */}
-              <div className="absolute inset-12 glassmorphism rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden flex flex-col">
+              <div className="absolute inset-12 glassmorphism rounded-3xl border border-white/10 shadow-2xl overflow-hidden flex flex-col">
                 {/* Horizontal Architectural divisions */}
                 <div className="flex-1 border-b border-white/10 relative overflow-hidden grid grid-cols-3">
                   <div className="border-r border-white/10 relative bg-gradient-to-br from-primary/5 to-transparent">

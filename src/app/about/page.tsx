@@ -40,7 +40,7 @@ export default function AboutPage() {
         <SectionHeading
           badge="About Us"
           title="Engineering Premium Facades"
-          subtitle="Learn more about Alweemunium Glazing, a dedicated startup based in Pune bringing premium architectural solutions to modern buildings."
+          subtitle="Learn more about Alweemunium Glazing, bringing 40+ years of industry-leading facade engineering and architectural glass solutions to premium projects."
         />
 
         {/* Company Intro & Grid */}
@@ -54,11 +54,11 @@ export default function AboutPage() {
             className="lg:col-span-7 flex flex-col gap-6 text-left"
           >
             <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-              A Pune-Based Startup Dedicated to <br />
+              40+ Years of Dedication to <br />
               <span className="text-primary font-normal">Architectural Glazing Excellence</span>
             </h3>
             <p className="text-white/70 text-base leading-relaxed">
-              Founded in Pune, Maharashtra, **Alweemunium Glazing** was established with a singular focus: to bridge the gap between premium design requirements and precise on-site execution in the aluminium window and facade sector.
+              With over **40 years of core industry expertise**, the team at **Alweemunium Glazing** represents a rich heritage of precision engineering. Our focus is to bridge the gap between premium design requirements and millimetre-accurate on-site execution in Pune's residential and commercial spaces.
             </p>
             <p className="text-white/60 text-sm leading-relaxed">
               We specialize in custom sliding windows, architectural sliding doors, soundproof glass systems, ACP cladding elevations, and curtain walls for residential high-rises and commercial retail setups. We prioritize clean finishing, dust-proof sealing, double soundproofing, and RERA-compliant setups.

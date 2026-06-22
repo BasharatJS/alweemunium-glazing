@@ -17,8 +17,8 @@ export const viewport = {
 
 export const metadata: Metadata = {
   title: "Alweemunium Glazing | Premium Aluminium Facades & Windows in Pune",
-  description: "Alweemunium Glazing Pune designs and executes premium sliding windows, glazing systems, curtain walls, ACP cladding, and aluminium facade solutions for residential and commercial spaces.",
-  keywords: "aluminium glazing Pune, sliding windows Pune, curtain wall Pune, ACP cladding Pune, facade solutions Pune, structural glazing Pune, sliding doors, office glass partitions, Pune aluminium construction startup",
+  description: "Backed by 40+ years of engineering experience, Alweemunium Glazing Pune designs and executes premium sliding windows, glazing systems, curtain walls, ACP cladding, and aluminium facade solutions.",
+  keywords: "aluminium glazing Pune, sliding windows Pune, curtain wall Pune, ACP cladding Pune, facade solutions Pune, structural glazing Pune, sliding doors, office glass partitions, Pune aluminium construction experts",
   authors: [{ name: "Alweemunium Glazing" }],
   robots: "index, follow",
 };

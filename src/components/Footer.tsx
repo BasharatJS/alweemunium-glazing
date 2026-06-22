@@ -28,7 +28,7 @@ export default function Footer() {
             <div className="flex items-center gap-4 text-white/50 text-xs">
               <span>RERA Registered</span>
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              <span>Pune Startup</span>
+              <span>40+ Years Experience</span>
             </div>
           </div>
 
@@ -96,19 +96,24 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
-                  Baner Road, near Balewadi High Street, Pune, Maharashtra 411045
+                  Adarsh Nagar, Ururli Devachi, Pune, Maharashtra 412308
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-primary shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-primary transition-colors">
-                  +91 98765 43210
-                </a>
+              <li className="flex items-start gap-3">
+                <Phone className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <a href="tel:+919492976113" className="hover:text-primary transition-colors">
+                    +91 94929 76113
+                  </a>
+                  <a href="tel:+919324521022" className="hover:text-primary transition-colors">
+                    +91 93245 21022
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary shrink-0" />
-                <a href="mailto:info@alweemuniumglazing.com" className="hover:text-primary transition-colors">
-                  info@alweemuniumglazing.com
+                <a href="mailto:mdbasharattaquee@gmail.com" className="hover:text-primary transition-colors break-all">
+                  mdbasharattaquee@gmail.com
                 </a>
               </li>
             </ul>
