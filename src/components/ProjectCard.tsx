@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { MapPin, ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 
 interface ProjectCardProps {
   title: string;

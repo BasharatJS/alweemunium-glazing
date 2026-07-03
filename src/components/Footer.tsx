@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Layers, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { business, serviceSummaries } from "@/lib/business";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,17 +19,22 @@ export default function Footer() {
               <div className="relative flex items-center justify-center w-9 h-9 rounded-lg border border-primary/30 bg-white/5">
                 <Layers className="w-4 h-4 text-primary" />
               </div>
-              <span className="text-lg font-bold tracking-tight text-white">
-                ALWEE<span className="text-primary font-light">MUNIUM</span>
+              <span className="flex flex-col leading-none">
+                <span className="text-lg font-bold tracking-tight text-white">
+                  {business.name}
+                </span>
+                <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+                  {business.tagline}
+                </span>
               </span>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed max-w-sm">
-              Pioneering high-performance aluminium facades, glazing systems, and sliding window solutions for modern architectural projects in Pune.
+              Aluminium architectural work for windows, doors, partitions, glazing, ACP, railings, shower cubicles, and canopy systems.
             </p>
             <div className="flex items-center gap-4 text-white/50 text-xs">
-              <span>RERA Registered</span>
+              <span>Proprietor: {business.proprietor}</span>
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              <span>40+ Years Experience</span>
+              <span>{business.shortAddress}</span>
             </div>
           </div>
 
@@ -67,12 +73,10 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-3">
               {[
-                { name: "Sliding Windows", href: "/services#sliding-windows" },
-                { name: "Sliding Doors", href: "/services#sliding-doors" },
-                { name: "Curtain Wall Systems", href: "/services#curtain-walls" },
-                { name: "ACP Cladding", href: "/services#acp-cladding" },
-                { name: "Structural Glazing", href: "/services#structural-glazing" },
-                { name: "Aluminium Glass Partitions", href: "/services#partitions" },
+                ...serviceSummaries.slice(0, 6).map((service) => ({
+                  name: service.title,
+                  href: `/services#${service.id}`,
+                })),
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -96,24 +100,24 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
-                  Adarsh Nagar, Ururli Devachi, Pune, Maharashtra 412308
+                  {business.address}
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                 <div className="flex flex-col gap-1">
-                  <a href="tel:+919492976113" className="hover:text-primary transition-colors">
-                    +91 94929 76113
+                  <a href={`tel:${business.phoneHref}`} className="hover:text-primary transition-colors">
+                    {business.phone}
                   </a>
-                  <a href="tel:+919324521022" className="hover:text-primary transition-colors">
-                    +91 93245 21022
+                  <a href={`tel:${business.secondaryPhoneHref}`} className="hover:text-primary transition-colors">
+                    {business.secondaryPhone}
                   </a>
                 </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary shrink-0" />
-                <a href="mailto:mdbasharattaquee@gmail.com" className="hover:text-primary transition-colors break-all">
-                  mdbasharattaquee@gmail.com
+                <a href={`mailto:${business.email}`} className="hover:text-primary transition-colors break-all">
+                  {business.email}
                 </a>
               </li>
             </ul>
@@ -122,7 +126,7 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
-          <p>© {currentYear} Alweemunium Glazing Pune. All Rights Reserved.</p>
+          <p>© {currentYear} {business.name}. All Rights Reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Layers } from "lucide-react";
+import { business } from "@/lib/business";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -31,11 +32,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on path change
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -46,13 +42,18 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2.5 group">
           <div className="relative flex items-center justify-center w-10 h-10 rounded-lg border border-primary/30 bg-white/5 group-hover:border-primary/80 transition-all duration-300">
             <Layers className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-300" />
             <div className="absolute inset-0 rounded-lg bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
           </div>
-          <span className="text-xl font-bold tracking-tight text-white">
-            ALWEE<span className="text-primary font-light">MUNIUM</span>
+          <span className="flex flex-col leading-none">
+            <span className="text-base sm:text-lg font-bold tracking-tight text-white">
+              {business.name}
+            </span>
+            <span className="mt-1 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              {business.tagline}
+            </span>
           </span>
         </Link>
 
@@ -119,6 +120,7 @@ export default function Navbar() {
                   <Link
                     key={item.path}
                     href={item.path}
+                    onClick={() => setIsOpen(false)}
                     className={`text-lg font-medium transition-colors duration-200 ${
                       isActive ? "text-primary border-l-2 border-primary pl-3" : "text-white/70 hover:text-white"
                     }`}
@@ -129,6 +131,7 @@ export default function Navbar() {
               })}
               <Link
                 href="/contact"
+                onClick={() => setIsOpen(false)}
                 className="mt-4 w-full py-3 text-center rounded-lg bg-primary text-pitch-black font-semibold text-sm hover:bg-primary-hover transition-colors duration-300 text-center"
               >
                 Get Consultation

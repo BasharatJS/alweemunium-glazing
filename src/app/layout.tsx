@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { business } from "@/lib/business";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -16,10 +17,10 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Alweemunium Glazing | Premium Aluminium Facades & Windows in Pune",
-  description: "Backed by 40+ years of engineering experience, Alweemunium Glazing Pune designs and executes premium sliding windows, glazing systems, curtain walls, ACP cladding, and aluminium facade solutions.",
-  keywords: "aluminium glazing Pune, sliding windows Pune, curtain wall Pune, ACP cladding Pune, facade solutions Pune, structural glazing Pune, sliding doors, office glass partitions, Pune aluminium construction experts",
-  authors: [{ name: "Alweemunium Glazing" }],
+  title: `${business.name} | ${business.tagline}`,
+  description: `${business.name} provides aluminium architectural work including system windows, door partitions, bathroom doors, W/C louvers, curtain wall, structural glazing, ACP, shower cubicles, glass railings, and skylight canopy work in Pune.`,
+  keywords: "Bombay Alu Glaze, aluminium architectural work Pune, aluminium system windows, door partition, bathroom door, W/C window louvers, curtain wall, structural glazing, ACP work, frameless window, glass railing, skylight canopy",
+  authors: [{ name: business.name }],
   robots: "index, follow",
 };
 
@@ -38,4 +39,3 @@ export default function RootLayout({
     </html>
   );
 }
-

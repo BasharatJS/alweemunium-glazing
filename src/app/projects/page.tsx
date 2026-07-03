@@ -22,6 +22,8 @@ const projectsData = [
     tags: ["residential", "glazing"],
     location: "Koregaon Park, Pune",
     description: "Heavy-gauge 3-track sliding window system with integrated high-tensile mosquito mesh, sliding friction locks, and argon gas double glazing.",
+    imageUrl:
+      "https://mccoymart.com/post/wp-content/uploads/30-Sep-24-Aluminium-Sliding-Windows-FI.jpg",
   },
   {
     title: "Commercial Curtain Wall Facade",
@@ -29,6 +31,8 @@ const projectsData = [
     tags: ["commercial", "facade", "glazing"],
     location: "Baner, Pune",
     description: "A semi-unitized glass curtain wall system with thermal break design, high heat reflection coatings, and sleek vertical profile caps.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1642591150884-3ea64e368a4e?q=80&w=1074",
   },
   {
     title: "Retail Showroom ACP Cladding",
@@ -36,6 +40,8 @@ const projectsData = [
     tags: ["commercial", "acp"],
     location: "Wakad, Pune",
     description: "Aluminium composite panel cladding for a premium automobile showroom frontage including customized brand color-matching and lighting slots.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1000",
   },
   {
     title: "Corporate Office Glass Partitions",
@@ -43,6 +49,8 @@ const projectsData = [
     tags: ["commercial", "glazing"],
     location: "Kharadi IT Park, Pune",
     description: "Minimalist interior glass partitions and modular cabin enclosures utilizing slim black-anodized channels and acoustic sealing gasket systems.",
+    imageUrl:
+      "https://plus.unsplash.com/premium_photo-1681487188656-bc309f7f7b7c?w=900",
   },
   {
     title: "High-Rise Structural Glazing",
@@ -50,6 +58,8 @@ const projectsData = [
     tags: ["commercial", "facade", "glazing"],
     location: "Kalyani Nagar, Pune",
     description: "Fully frameless structural glass facade execution utilizing structural silicone glazing joints for a stunning smooth glass tower.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1644251787786-7900294784af?q=80&w=734",
   },
   {
     title: "Luxury Villa Sliding Doors",
@@ -57,6 +67,8 @@ const projectsData = [
     tags: ["residential", "glazing"],
     location: "Aundh, Pune",
     description: "Large opening architectural lift-and-slide door systems merging internal living spaces with outdoor landscaped pools.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1721902024148-287438cf3e05?q=80&w=1170",
   },
   {
     title: "IT Hub Facade ACP Cladding",
@@ -64,6 +76,8 @@ const projectsData = [
     tags: ["commercial", "acp", "facade"],
     location: "Hinjawadi IT Park, Pune",
     description: "Multi-layered exterior ACP panel layout for an IT park facade, utilizing fire-resistant panels and integrated ventilation vents.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1170",
   },
   {
     title: "Balcony Glass Railings & Sliding",
@@ -71,6 +85,8 @@ const projectsData = [
     tags: ["residential", "glazing"],
     location: "Hadapsar, Pune",
     description: "Heavy soundproof sliding doors combined with frameless safety laminated glass railings for top-floor penthouse balcony enclosures.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1170",
   },
 ];
 
@@ -93,7 +109,7 @@ export default function ProjectsPage() {
         <SectionHeading
           badge="Our Portfolio"
           title="Designed & Executed Projects"
-          subtitle="A handpicked collection of modern residential windows, commercial glass elevations, structural facades, and ACP panels executed in Pune."
+          subtitle="A handpicked collection of aluminium windows, commercial glass elevations, structural facades, railings, cubicles, and ACP panels."
         />
 
         {/* Filter Navigation */}
@@ -144,7 +160,7 @@ export default function ProjectsPage() {
                   category={project.category}
                   location={project.location}
                   description={project.description}
-                  imageUrl=""
+                  imageUrl={project.imageUrl}
                 />
               </motion.div>
             ))}

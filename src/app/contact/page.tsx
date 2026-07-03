@@ -1,29 +1,24 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
+import { business, serviceSummaries } from "@/lib/business";
 
 function ContactFormContent() {
   const searchParams = useSearchParams();
+  const selectedService = searchParams.get("service") ?? serviceSummaries[0].id;
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
-    projectType: "sliding-windows",
+    projectType: selectedService,
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  useEffect(() => {
-    const serviceParam = searchParams.get("service");
-    if (serviceParam) {
-      setFormData((prev) => ({ ...prev, projectType: serviceParam }));
-    }
-  }, [searchParams]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -36,7 +31,7 @@ function ContactFormContent() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const messageText = `Hello Alweemunium Glazing, I would like to request a consultation.
+    const messageText = `Hello ${business.name}, I would like to request a consultation.
 
 *Name:* ${formData.name}
 *Phone:* ${formData.phone}
@@ -45,7 +40,7 @@ function ContactFormContent() {
 *Requirements:* ${formData.message}`;
 
     const encodedText = encodeURIComponent(messageText);
-    const whatsappUrl = `https://wa.me/919492976113?text=${encodedText}`;
+    const whatsappUrl = `https://wa.me/${business.whatsappNumber}?text=${encodedText}`;
 
     setTimeout(() => {
       setIsSubmitting(false);
@@ -55,7 +50,7 @@ function ContactFormContent() {
         name: "",
         phone: "",
         email: "",
-        projectType: "sliding-windows",
+        projectType: serviceSummaries[0].id,
         message: "",
       });
     }, 800);
@@ -73,7 +68,7 @@ function ContactFormContent() {
         </div>
         <h3 className="text-2xl font-bold text-white">Opening WhatsApp Chat...</h3>
         <p className="text-sm text-white/60 max-w-sm">
-          Thank you for reaching out to Alweemunium Glazing. We are redirecting you to WhatsApp to complete your consultation request.
+          Thank you for reaching out to {business.name}. We are redirecting you to WhatsApp to complete your consultation request.
         </p>
         <button
           onClick={() => setIsSubmitted(false)}
@@ -147,12 +142,11 @@ function ContactFormContent() {
           onChange={handleChange}
           className="px-4 py-3 rounded-lg border border-white/10 bg-pitch-black text-sm text-white focus:outline-none focus:border-primary/50 transition-colors w-full appearance-none cursor-pointer"
         >
-          <option value="sliding-windows">Sliding Windows</option>
-          <option value="sliding-doors">Sliding Doors</option>
-          <option value="curtain-walls">Curtain Wall Systems</option>
-          <option value="acp-cladding">ACP Cladding</option>
-          <option value="structural-glazing">Structural Glazing</option>
-          <option value="partitions">Aluminium Glass Partition Work</option>
+          {serviceSummaries.map((service) => (
+            <option key={service.id} value={service.id}>
+              {service.title}
+            </option>
+          ))}
           <option value="others">Other Exterior / Interior Glazing</option>
         </select>
       </div>
@@ -205,8 +199,8 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <SectionHeading
           badge="Contact Us"
-          title="Let's Build Your Facade"
-          subtitle="Get a free design consult, site measurement visit, and fabrication estimation for your Pune projects."
+          title={`Contact ${business.name}`}
+          subtitle="Get a consultation for aluminium windows, doors, partitions, glazing, ACP, railings, shower cubicles, and canopy work."
         />
 
         {/* ── Form + Contact Details side by side ── */}
@@ -231,7 +225,7 @@ export default function ContactPage() {
           {/* Right: Office Details */}
           <div className="lg:col-span-5 flex flex-col gap-6 text-left">
             <div className="glassmorphism p-8 rounded-2xl border border-white/5 flex flex-col gap-6">
-              <h3 className="text-xl font-bold text-white">Pune Office & Workshop</h3>
+              <h3 className="text-xl font-bold text-white">Office & Workshop</h3>
 
               <ul className="flex flex-col gap-6 text-sm">
                 <li className="flex items-start gap-4">
@@ -241,7 +235,7 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-bold text-white mb-1">Address</h4>
                     <p className="text-white/60 leading-relaxed">
-                      Adarsh Nagar, Ururli Devachi,<br />
+                      Adarsh Nagar, Uruli Devachi,<br />
                       Pune, Maharashtra 412308
                     </p>
                   </div>
@@ -254,11 +248,11 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-bold text-white mb-1">Call Us</h4>
                     <div className="flex flex-col gap-1 text-white/60">
-                      <a href="tel:+919492976113" className="hover:text-primary transition-colors">
-                        +91 94929 76113
+                      <a href={`tel:${business.phoneHref}`} className="hover:text-primary transition-colors">
+                        {business.phone}
                       </a>
-                      <a href="tel:+919324521022" className="hover:text-primary transition-colors">
-                        +91 93245 21022
+                      <a href={`tel:${business.secondaryPhoneHref}`} className="hover:text-primary transition-colors">
+                        {business.secondaryPhone}
                       </a>
                     </div>
                   </div>
@@ -271,10 +265,10 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-bold text-white mb-1">Email Us</h4>
                     <a
-                      href="mailto:mdbasharattaquee@gmail.com"
+                      href={`mailto:${business.email}`}
                       className="text-white/60 hover:text-primary transition-colors break-all"
                     >
-                      mdbasharattaquee@gmail.com
+                      {business.email}
                     </a>
                   </div>
                 </li>
@@ -286,7 +280,7 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-bold text-white mb-1">Working Hours</h4>
                     <p className="text-white/60 leading-relaxed">
-                      Mon – Sat: 9:30 AM – 6:30 PM<br />
+                      Mon - Sat: 9:30 AM - 6:30 PM<br />
                       Sunday: By prior appointment only
                     </p>
                   </div>
@@ -296,7 +290,7 @@ export default function ContactPage() {
 
             {/* WhatsApp Quick Contact */}
             <a
-              href="https://wa.me/919492976113"
+              href={`https://wa.me/${business.whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 p-5 rounded-2xl border border-primary/20 bg-primary/5 hover:bg-primary/10 hover:border-primary/40 transition-all duration-300 group"
@@ -309,7 +303,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="text-sm font-bold text-white group-hover:text-primary transition-colors">Chat on WhatsApp</p>
-                <p className="text-xs text-white/50">Quick replies – usually within an hour</p>
+                <p className="text-xs text-white/50">Quick replies - usually within an hour</p>
               </div>
             </a>
           </div>
@@ -325,8 +319,8 @@ export default function ContactPage() {
           style={{ height: "440px" }}
         >
           <iframe
-            title="Alweemunium Glazing Location - Ururli Devachi, Pune"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3785.407!2d73.9658!3d18.4554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eb33ab23c22f%3A0x95b2beb2d3c75ed7!2sUruli%20Devachi%2C%20Pune%2C%20Maharashtra%20412308!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            title={`${business.name} Location - ${business.shortAddress}`}
+            src="https://www.google.com/maps?q=Adarsh%20Nagar%2C%20Uruli%20Devachi%2C%20Pune%2C%20Maharashtra%20412308&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) brightness(0.85)" }}

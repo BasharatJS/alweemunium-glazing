@@ -3,12 +3,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
-  Wind,
-  Move,
-  Grid,
-  Layers,
-  LayoutGrid,
-  Building,
   CheckCircle2,
   Compass,
   Hammer,
@@ -17,52 +11,12 @@ import {
   Users,
   Award,
   ArrowRight,
-  TrendingUp,
-  MapPin
 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCard from "@/components/ServiceCard";
 import ProjectCard from "@/components/ProjectCard";
 import CTASection from "@/components/CTASection";
-
-const services = [
-  {
-    title: "Sliding Windows",
-    description: "Premium soundproof and weather-resistant sliding windows tailored for home balconies and rooms.",
-    iconName: "Wind" as const,
-    link: "/services#sliding-windows",
-  },
-  {
-    title: "Sliding Doors",
-    description: "Large opening architectural aluminium sliding doors offering seamless indoor-outdoor transitions.",
-    iconName: "Move" as const,
-    link: "/services#sliding-doors",
-  },
-  {
-    title: "Curtain Wall Systems",
-    description: "Architectural stick and unitized curtain walls designed to elevate commercial building exterior aesthetics.",
-    iconName: "Grid" as const,
-    link: "/services#curtain-walls",
-  },
-  {
-    title: "ACP Cladding",
-    description: "Aluminium Composite Panel cladding for modern, high-durability commercial building front elevations.",
-    iconName: "Layers" as const,
-    link: "/services#acp-cladding",
-  },
-  {
-    title: "Structural Glazing",
-    description: "Premium frameless structural glass facades providing stunning flush exterior glass elevations.",
-    iconName: "LayoutGrid" as const,
-    link: "/services#structural-glazing",
-  },
-  {
-    title: "Aluminium Facades",
-    description: "Comprehensive end-to-end aluminium exterior solutions engineered for Pune's climatic conditions.",
-    iconName: "Building" as const,
-    link: "/services#facades",
-  },
-];
+import { business, serviceSummaries } from "@/lib/business";
 
 const features = [
   {
@@ -138,7 +92,7 @@ const processSteps = [
   {
     step: "01",
     title: "Site Visit",
-    description: "We visit your site in Pune for precision laser measurements and structural feasibility checks.",
+    description: "We visit your site for precision measurements and structural feasibility checks.",
   },
   {
     step: "02",
@@ -153,7 +107,7 @@ const processSteps = [
   {
     step: "04",
     title: "Fabrication",
-    description: "Millimetre-accurate cuts and structural assembly at our state-of-the-art Pune workshop facility.",
+    description: "Millimetre-accurate cuts and structural assembly at our workshop facility.",
   },
   {
     step: "05",
@@ -190,7 +144,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-xs font-semibold text-primary max-w-fit"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping" />
-              <span>40+ Years of Premium Facade & Glazing Experience</span>
+              <span>{business.tagline}</span>
             </motion.div>
 
             <motion.h1
@@ -199,11 +153,10 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]"
             >
-              Premium Aluminium <br />
+              {business.name} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-hover to-accent-green glow-filter">
-                Glazing & Facade
-              </span>{" "}
-              Solutions
+                {business.tagline}
+              </span>
             </motion.h1>
 
             <motion.p
@@ -212,7 +165,7 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-white/70 text-base sm:text-lg leading-relaxed max-w-xl"
             >
-              We design and execute modern sliding windows, glazing systems, curtain walls, ACP cladding, and aluminium facade solutions for residential and commercial projects.
+              We design, fabricate, and install aluminium system windows, door partitions, bathroom doors, W/C louvers, curtain wall, structural glazing, ACP, shower cubicles, glass railings, and skylight canopy work.
             </motion.p>
 
             <motion.div
@@ -248,7 +201,7 @@ export default function Home() {
               </div>
               <div>
                 <span className="block text-2xl font-bold text-white">Double</span>
-                <span className="text-xs text-white/50">Sound Glazing</span>
+                <span className="text-xs text-white/50">Window Systems</span>
               </div>
               <div>
                 <span className="block text-2xl font-bold text-white">RERA</span>
@@ -309,7 +262,7 @@ export default function Home() {
                 className="absolute top-8 right-0 px-3 py-1.5 rounded-lg border border-white/10 bg-pitch-black/85 backdrop-blur-sm text-[10px] font-mono text-white/70 flex items-center gap-2"
               >
                 <div className="w-2 h-2 rounded-full bg-primary" />
-                <span>Structural Glass Elevation</span>
+                <span>Curtain Wall & Glazing</span>
               </motion.div>
 
               <motion.div
@@ -318,7 +271,7 @@ export default function Home() {
                 className="absolute bottom-6 left-2 px-3 py-1.5 rounded-lg border border-white/10 bg-pitch-black/85 backdrop-blur-sm text-[10px] font-mono text-white/70 flex items-center gap-2"
               >
                 <div className="w-2 h-2 rounded-full bg-accent-green" />
-                <span>Soundproof Sliding Windows</span>
+                <span>Sound Proof Windows</span>
               </motion.div>
             </motion.div>
           </div>
@@ -330,19 +283,19 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             badge="Solutions"
-            title="Engineered Glazing Systems"
-            subtitle="We fabricate and assemble premium aluminium glass applications conforming to the highest structural and aesthetic standards."
+            title="Aluminium Architectural Services"
+            subtitle="A complete service list from system windows and door partitions to ACP, shower cubicles, glass railings, skylights, domes, and canopies."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+            {serviceSummaries.map((service, index) => (
               <ServiceCard
                 key={service.title}
                 index={index}
                 title={service.title}
                 description={service.description}
                 iconName={service.iconName}
-                link={service.link}
+                link={`/services#${service.id}`}
               />
             ))}
           </div>
@@ -364,8 +317,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             badge="Advantages"
-            title="Why Choose Alweemunium Glazing?"
-            subtitle="Delivering structural excellence, precision design layouts, and weather-proof installations across Pune."
+            title={`Why Choose ${business.name}?`}
+            subtitle={`Delivering aluminium architectural work with clean fabrication, practical detailing, and reliable installation from ${business.shortAddress}.`}
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -407,7 +360,7 @@ export default function Home() {
           <SectionHeading
             badge="Portfolio"
             title="Premium Projects Showcase"
-            subtitle="Explore our structural work across residential towers, IT hubs, and retail frontages in Pune."
+            subtitle="Explore our aluminium architectural work across homes, shops, offices, and commercial frontages."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

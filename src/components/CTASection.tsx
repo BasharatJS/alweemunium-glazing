@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Layers } from "lucide-react";
+import { business } from "@/lib/business";
 
 export default function CTASection() {
   return (
@@ -32,13 +33,13 @@ export default function CTASection() {
 
           <div className="flex flex-col gap-4">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-              Planning a Facade, Glazing, or <br />
+              Planning Windows, Doors, or <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-green">
-                Sliding Window Project?
+                Glazing Work?
               </span>
             </h2>
             <p className="text-white/60 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              Get in touch with Pune’s premier aluminium glazing engineers. We discuss layouts, create structural design blueprints, select materials, and provide custom fabrication for your commercial or residential spaces.
+              Get in touch with {business.name} for aluminium system windows, door partitions, bathroom doors, W/C louvers, structural glazing, ACP, shower cubicles, railings, and canopy work.
             </p>
           </div>
 
@@ -60,7 +61,7 @@ export default function CTASection() {
 
           {/* Location Badge */}
           <span className="text-xs text-white/40 tracking-widest uppercase mt-4">
-            Custom Fabrication & Installation • Pune Region
+            Custom Fabrication & Installation - {business.shortAddress}
           </span>
         </motion.div>
       </div>

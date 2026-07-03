@@ -4,16 +4,17 @@ import { motion } from "framer-motion";
 import { Compass, ShieldCheck, Cpu, CheckSquare } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import CTASection from "@/components/CTASection";
+import { business } from "@/lib/business";
 
 const values = [
   {
     title: "Millimetre Precision",
-    description: "Our local Pune fabrication facility works with high-accuracy cutting grids ensuring profiles join seamlessly and tracks operate with minimal friction.",
+    description: "Our local fabrication work focuses on accurate cutting, clean profile joining, and smooth window and door operation.",
     icon: Cpu,
   },
   {
     title: "Climatic Engineering",
-    description: "All products are custom-configured to Pune's local wind loads and heavy summer/monsoon cycles, preventing leaks and whistling sounds.",
+    description: "All products are custom-configured for site conditions, daily use, weather exposure, airflow, privacy, and sealing needs.",
     icon: Compass,
   },
   {
@@ -39,8 +40,8 @@ export default function AboutPage() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <SectionHeading
           badge="About Us"
-          title="Engineering Premium Facades"
-          subtitle="Learn more about Alweemunium Glazing, bringing 40+ years of industry-leading facade engineering and architectural glass solutions to premium projects."
+          title={`About ${business.name}`}
+          subtitle={`${business.tagline} for windows, doors, partitions, glazing, ACP, shower cubicles, glass railings, skylights, domes, and canopies.`}
         />
 
         {/* Company Intro & Grid */}
@@ -58,10 +59,10 @@ export default function AboutPage() {
               <span className="text-primary font-normal">Architectural Glazing Excellence</span>
             </h3>
             <p className="text-white/70 text-base leading-relaxed">
-              With over **40 years of core industry expertise**, the team at **Alweemunium Glazing** represents a rich heritage of precision engineering. Our focus is to bridge the gap between premium design requirements and millimetre-accurate on-site execution in Pune's residential and commercial spaces.
+              The team at {business.name} works on practical, well-finished aluminium architectural solutions for residential and commercial spaces. Our focus is accurate measurement, clean fabrication, and dependable on-site installation.
             </p>
             <p className="text-white/60 text-sm leading-relaxed">
-              We specialize in custom sliding windows, architectural sliding doors, soundproof glass systems, ACP cladding elevations, and curtain walls for residential high-rises and commercial retail setups. We prioritize clean finishing, dust-proof sealing, double soundproofing, and RERA-compliant setups.
+              We specialize in aluminium system windows, door partitions, bathroom doors, W/C window louvers, curtain wall and structural glazing, ACP work, sliding folding sound proof windows, casement windows, frameless windows, shower cubicles, glass railing, skylights, domes, and canopies.
             </p>
 
             {/* Micro Grid Metrics */}
@@ -98,7 +99,7 @@ export default function AboutPage() {
             </div>
             
             <div className="absolute bottom-4 right-4 px-3 py-1 text-[10px] font-mono text-primary bg-primary/5 border border-primary/20 rounded">
-              EST. PUNE, MH
+              URULI DEVACHI, PUNE
             </div>
           </motion.div>
         </div>
@@ -137,7 +138,7 @@ export default function AboutPage() {
               Our Vision
             </h3>
             <p className="text-sm text-white/60 leading-relaxed">
-              To become Pune’s most trusted partner for premium aluminium facade and glass architectural engineering. We strive to pioneer sustainable, thermally broken profiles that reduce energy costs while providing expansive, beautiful views.
+              To become a trusted local partner for aluminium architectural work by delivering durable windows, doors, glass systems, ACP fronts, railings, cubicles, and canopy details with neat finishing.
             </p>
           </motion.div>
         </div>
