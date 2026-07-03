@@ -63,28 +63,32 @@ const projects = [
     category: "Residential",
     location: "Koregaon Park, Pune",
     description: "Heavy-duty 3-track sliding window system with integrated mosquito mesh and soundproof double-glazing.",
-    imageUrl: "",
+    imageUrl:
+      "https://mccoymart.com/post/wp-content/uploads/30-Sep-24-Aluminium-Sliding-Windows-FI.jpg",
   },
   {
     title: "Commercial Curtain Wall Facade",
     category: "Commercial / Facade",
     location: "Baner, Pune",
     description: "Semi-unitized curtain wall system utilizing structural silicone glazing and high-performance energy-saving glass.",
-    imageUrl: "",
+    imageUrl:
+      "https://images.unsplash.com/photo-1642591150884-3ea64e368a4e?q=80&w=1074",
   },
   {
     title: "Office Glass Partition",
     category: "Glazing / Interiors",
     location: "Kharadi IT Park, Pune",
     description: "Minimalist floor-to-ceiling glass partition walls with powder-coated sleek black aluminium tracks.",
-    imageUrl: "",
+    imageUrl:
+      "https://plus.unsplash.com/premium_photo-1681487188656-bc309f7f7b7c?w=900",
   },
   {
     title: "ACP Cladding Elevation",
     category: "ACP / Cladding",
     location: "Wakad, Pune",
     description: "Modern retail exterior clad with fire-retardant aluminium composite panels and custom LED channel styling.",
-    imageUrl: "",
+    imageUrl:
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1000",
   },
 ];
 
