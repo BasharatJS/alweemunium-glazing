@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Layers, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import BrandMark from "@/components/BrandMark";
 import { business, serviceSummaries } from "@/lib/business";
 
 export default function Footer() {
@@ -16,9 +17,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="relative flex items-center justify-center w-9 h-9 rounded-lg border border-primary/30 bg-white/5">
-                <Layers className="w-4 h-4 text-primary" />
-              </div>
+              <BrandMark className="h-10 w-10 ring-1 ring-primary/30 transition-all duration-300 group-hover:ring-primary/70" />
               <span className="flex flex-col leading-none">
                 <span className="text-lg font-bold tracking-tight text-white">
                   {business.name}

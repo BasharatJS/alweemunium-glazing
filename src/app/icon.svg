@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Bombay Alu Glaze logo mark</title>
+  <desc id="desc">A professional aluminium glazing monogram with framed glass panels.</desc>
+  <defs>
+    <linearGradient id="frame" x1="12" y1="10" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d9ff8f"/>
+      <stop offset="0.5" stop-color="#a3e635"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="16" y1="14" x2="48" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f8fafc" stop-opacity="0.22"/>
+      <stop offset="0.55" stop-color="#38bdf8" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#22c55e" stop-opacity="0.16"/>
+    </linearGradient>
+    <filter id="glow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.64 0 0 0 0 0.9 0 0 0 0 0.21 0 0 0 0.55 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#05070c"/>
+  <rect x="4.5" y="4.5" width="55" height="55" rx="13.5" fill="#0b1210" stroke="#a3e635" stroke-opacity="0.32"/>
+  <path d="M17 48V19.5L32 12l15 7.5V48H17Z" fill="url(#glass)" stroke="url(#frame)" stroke-width="3.2" stroke-linejoin="round" filter="url(#glow)"/>
+  <path d="M18.5 30.5h27M32 14.5V48M21.5 45.5 43.5 18.5" fill="none" stroke="#f8fafc" stroke-opacity="0.58" stroke-width="2" stroke-linecap="round"/>
+  <path d="M17 48h30" fill="none" stroke="#a3e635" stroke-width="3.2" stroke-linecap="round"/>
+  <circle cx="47" cy="19.5" r="2.4" fill="#d9ff8f"/>
+</svg>

@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Layers } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import BrandMark from "@/components/BrandMark";
 import { business } from "@/lib/business";
 
 const navItems = [
@@ -42,11 +43,8 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-lg border border-primary/30 bg-white/5 group-hover:border-primary/80 transition-all duration-300">
-            <Layers className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-300" />
-            <div className="absolute inset-0 rounded-lg bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
-          </div>
+        <Link href="/" className="group flex items-center gap-3" aria-label={`${business.name} home`}>
+          <BrandMark className="h-11 w-11 ring-1 ring-primary/35 transition-all duration-300 group-hover:ring-primary/80 group-hover:shadow-[0_0_32px_rgba(163,230,53,0.25)]" />
           <span className="flex flex-col leading-none">
             <span className="text-base sm:text-lg font-bold tracking-tight text-white">
               {business.name}
