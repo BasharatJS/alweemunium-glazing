@@ -122,7 +122,7 @@ export default function ProjectsPage() {
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
                   className={`relative px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-lg ${
-                    isActive ? "text-pitch-black" : "text-white/60 hover:text-white"
+                    isActive ? "text-ink" : "text-white/60 hover:text-white"
                   }`}
                 >
                   <span className="relative z-10">{filter.name}</span>

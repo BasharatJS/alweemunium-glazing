@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -92,6 +94,29 @@ const projects = [
   },
 ];
 
+const heroSlides = [
+  {
+    src: "/hero/sliding-glass-door.jpg",
+    label: "sliding glass door",
+  },
+  {
+    src: "/hero/glass-panel-doors.jpg",
+    label: "glass panel doors",
+  },
+  {
+    src: "/hero/curtain-wall-building.jpg",
+    label: "curtain wall building",
+  },
+  {
+    src: "/hero/glass-building-facade.jpg",
+    label: "glass building facade",
+  },
+  {
+    src: "/hero/office-glass-partition.jpg",
+    label: "office glass partition",
+  },
+] as const;
+
 const processSteps = [
   {
     step: "01",
@@ -126,8 +151,18 @@ const processSteps = [
 ];
 
 export default function Home() {
+  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveHeroSlide((current) => (current + 1) % heroSlides.length);
+    }, 5200);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
-    <div className="relative overflow-hidden min-h-screen bg-dark-bg">
+    <div className="relative -mt-24 overflow-hidden min-h-screen bg-dark-bg">
       {/* Structural Grid lines background */}
       <div className="absolute inset-0 grid-lines pointer-events-none opacity-30 z-0" />
 
@@ -136,148 +171,128 @@ export default function Home() {
       <div className="absolute top-[20%] left-10 w-[400px] h-[400px] bg-accent-green/5 rounded-full blur-[120px] pointer-events-none" />
 
       {/* HERO SECTION */}
-      <section className="relative min-h-[calc(100vh-96px)] flex items-center justify-center py-20 px-6 z-10 border-b border-white/5">
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
-          {/* Hero Left Content */}
-          <div className="lg:col-span-7 flex flex-col gap-8 text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-xs font-semibold text-primary max-w-fit"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping" />
-              <span>{business.tagline}</span>
-            </motion.div>
+      <section className="relative z-10 flex min-h-screen items-center justify-center overflow-hidden border-b border-white/5 px-6 pb-20 pt-40 sm:pt-44">
+        <div className="absolute inset-0 z-0">
+          {heroSlides.map((slide, index) => {
+            const isActive = activeHeroSlide === index;
 
-            <motion.h1
-              initial={{ opacity: 0, y: 35 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]"
-            >
-              {business.name} <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-hover to-accent-green glow-filter">
-                {business.tagline}
-              </span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-white/70 text-base sm:text-lg leading-relaxed max-w-xl"
-            >
-              We design, fabricate, and install aluminium system windows, door partitions, bathroom doors, W/C louvers, curtain wall, structural glazing, ACP, shower cubicles, glass railings, and skylight canopy work.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-4 mt-2"
-            >
-              <Link
-                href="/services"
-                className="px-6 py-3.5 rounded-xl bg-primary text-pitch-black font-bold text-sm tracking-wide hover:bg-primary-hover shadow-lg hover:shadow-primary/25 transition-all duration-300 neon-glow"
-              >
-                Explore Services
-              </Link>
-              <Link
-                href="/projects"
-                className="px-6 py-3.5 rounded-xl border border-white/10 bg-white/5 text-white font-bold text-sm tracking-wide hover:bg-white/15 transition-all duration-300"
-              >
-                View Projects
-              </Link>
-            </motion.div>
-
-            {/* Quick Metrics */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="grid grid-cols-3 gap-6 border-t border-white/5 pt-8 mt-4 max-w-lg"
-            >
-              <div>
-                <span className="block text-2xl font-bold text-white">100%</span>
-                <span className="text-xs text-white/50">Custom Design</span>
-              </div>
-              <div>
-                <span className="block text-2xl font-bold text-white">Double</span>
-                <span className="text-xs text-white/50">Window Systems</span>
-              </div>
-              <div>
-                <span className="block text-2xl font-bold text-white">RERA</span>
-                <span className="text-xs text-white/50">Standards Compliant</span>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Hero Right Graphic */}
-          <div className="lg:col-span-5 relative w-full aspect-square flex items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.85 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="w-full h-full relative"
-            >
-              {/* Spinning / Glowing Outer Rings */}
-              <div className="absolute inset-0 border border-white/5 rounded-full scale-95 pointer-events-none" />
-              <div className="absolute inset-4 border border-primary/10 rounded-full animate-[spin_40s_linear_infinite] pointer-events-none" />
-              
-              {/* Glassmorphic Facade Frame Mockup */}
-              <div className="absolute inset-12 glassmorphism rounded-3xl border border-white/10 shadow-2xl overflow-hidden flex flex-col">
-                {/* Horizontal Architectural divisions */}
-                <div className="flex-1 border-b border-white/10 relative overflow-hidden grid grid-cols-3">
-                  <div className="border-r border-white/10 relative bg-gradient-to-br from-primary/5 to-transparent">
-                    {/* Animated grid line accent */}
-                    <div className="absolute bottom-0 left-0 w-full h-[2px] bg-primary/30 glow-filter" />
-                  </div>
-                  <div className="border-r border-white/10 relative bg-pitch-black/20" />
-                  <div className="relative bg-gradient-to-tr from-accent-green/5 to-transparent">
-                    <div className="absolute top-0 right-0 h-full w-[2px] bg-accent-green/30" />
-                  </div>
-                </div>
-
-                <div className="flex-1 border-b border-white/10 grid grid-cols-2 relative">
-                  {/* Glowing facade node */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full border border-primary bg-pitch-black flex items-center justify-center glow-filter z-20">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary animate-ping" />
-                  </div>
-                  <div className="border-r border-white/10 relative bg-pitch-black/40" />
-                  <div className="relative bg-white/5" />
-                </div>
-
-                <div className="flex-1 grid grid-cols-3">
-                  <div className="border-r border-white/10 relative" />
-                  <div className="border-r border-white/10 relative bg-gradient-to-b from-primary/10 to-transparent" />
-                  <div className="relative" />
-                </div>
-
-                {/* Glass reflection gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none" />
-              </div>
-
-              {/* Floating Architectural Labels */}
+            return (
               <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-8 right-0 px-3 py-1.5 rounded-lg border border-white/10 bg-pitch-black/85 backdrop-blur-sm text-[10px] font-mono text-white/70 flex items-center gap-2"
+                key={slide.src}
+                initial={false}
+                animate={{
+                  opacity: isActive ? 1 : 0,
+                  scale: isActive ? 1 : 1.04,
+                }}
+                transition={{
+                  opacity: { duration: 1.2, ease: "easeInOut" },
+                  scale: { duration: 6.5, ease: "easeOut" },
+                }}
+                className="absolute inset-0"
               >
-                <div className="w-2 h-2 rounded-full bg-primary" />
-                <span>Curtain Wall & Glazing</span>
+                <Image
+                  src={slide.src}
+                  alt=""
+                  fill
+                  preload={index === 0}
+                  quality={92}
+                  sizes="100vw"
+                  className="object-cover"
+                />
               </motion.div>
+            );
+          })}
+          <div className="absolute inset-0 bg-pitch-black/25" />
+          <div className="absolute inset-0 bg-gradient-to-b from-pitch-black/40 via-pitch-black/10 to-pitch-black/65" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(101,163,13,0.12),transparent_44%)]" />
+          <div className="absolute inset-0 grid-lines opacity-20" />
+        </div>
 
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-6 left-2 px-3 py-1.5 rounded-lg border border-white/10 bg-pitch-black/85 backdrop-blur-sm text-[10px] font-mono text-white/70 flex items-center gap-2"
-              >
-                <div className="w-2 h-2 rounded-full bg-accent-green" />
-                <span>Sound Proof Windows</span>
-              </motion.div>
-            </motion.div>
+        <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center gap-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex max-w-full items-center justify-center gap-2 rounded-full border border-primary/25 bg-pitch-black/70 px-3 py-1 text-xs font-semibold text-primary shadow-lg shadow-black/10 backdrop-blur-md"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-ping" />
+            <span>{business.tagline}</span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 35 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="max-w-5xl text-4xl font-bold leading-[1.08] text-white sm:text-5xl lg:text-6xl"
+          >
+            {business.name}
+            <span className="mt-4 block text-primary glow-filter">
+              {business.tagline}
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mx-auto max-w-3xl text-base leading-relaxed text-white/78 sm:text-lg"
+          >
+            We design, fabricate, and install aluminium system windows, door partitions, bathroom doors, W/C louvers, curtain wall, structural glazing, ACP, shower cubicles, glass railings, and skylight canopy work.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="mt-2 flex flex-wrap items-center justify-center gap-4"
+          >
+            <Link
+              href="/services"
+              className="rounded-xl bg-primary px-6 py-3.5 text-sm font-bold tracking-wide text-ink shadow-lg transition-all duration-300 hover:bg-primary-hover hover:shadow-primary/25 neon-glow"
+            >
+              Explore Services
+            </Link>
+            <Link
+              href="/projects"
+              className="rounded-xl border border-white/15 bg-pitch-black/75 px-6 py-3.5 text-sm font-bold tracking-wide text-white backdrop-blur-md transition-all duration-300 hover:bg-white/15"
+            >
+              View Projects
+            </Link>
+          </motion.div>
+
+          {/* Quick Metrics */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-4 grid w-full max-w-2xl grid-cols-1 gap-5 border-t border-white/10 pt-8 sm:grid-cols-3"
+          >
+            <div>
+              <span className="block text-2xl font-bold text-white">100%</span>
+              <span className="text-xs text-white/60">Custom Design</span>
+            </div>
+            <div>
+              <span className="block text-2xl font-bold text-white">Double</span>
+              <span className="text-xs text-white/60">Window Systems</span>
+            </div>
+            <div>
+              <span className="block text-2xl font-bold text-white">RERA</span>
+              <span className="text-xs text-white/60">Standards Compliant</span>
+            </div>
+          </motion.div>
+
+          <div className="flex items-center justify-center gap-2 pt-1">
+            {heroSlides.map((slide, index) => (
+              <button
+                key={slide.src}
+                type="button"
+                onClick={() => setActiveHeroSlide(index)}
+                aria-label={`Show ${slide.label} hero image`}
+                className={`h-1.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/70 focus:ring-offset-2 focus:ring-offset-pitch-black ${
+                  activeHeroSlide === index ? "w-8 bg-primary" : "w-2.5 bg-white/40 hover:bg-white/70"
+                }`}
+              />
+            ))}
           </div>
         </div>
       </section>

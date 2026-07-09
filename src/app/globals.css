@@ -1,20 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #a3e635;
-  --color-primary-hover: #bef264;
-  --color-accent-green: #22c55e;
-  --color-dark-bg: #05070c;
-  --color-pitch-black: #020305;
-  --color-card-bg: rgba(255, 255, 255, 0.03);
-  --color-card-border: rgba(255, 255, 255, 0.08);
+  --color-white: #0f172a;
+  --color-primary: #65a30d;
+  --color-primary-hover: #4d7c0f;
+  --color-accent-green: #16a34a;
+  --color-dark-bg: #f8fafc;
+  --color-pitch-black: #ffffff;
+  --color-card-bg: rgba(255, 255, 255, 0.82);
+  --color-card-border: rgba(15, 23, 42, 0.1);
+  --color-ink: #0f172a;
   
   --font-sans: var(--font-outfit), var(--font-geist-sans), system-ui, sans-serif;
 }
 
 :root {
-  --background: #05070c;
-  --foreground: #f8fafc;
+  --background: #f8fafc;
+  --foreground: #0f172a;
 }
 
 body {
@@ -27,24 +29,25 @@ body {
 /* Custom CSS utilities for premium grid design and animations */
 .grid-lines {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
 .glow-filter {
-  filter: drop-shadow(0 0 15px rgba(163, 230, 53, 0.25));
+  filter: drop-shadow(0 0 15px rgba(101, 163, 13, 0.22));
 }
 
 .neon-glow {
-  box-shadow: 0 0 30px rgba(163, 230, 53, 0.15);
+  box-shadow: 0 12px 30px rgba(101, 163, 13, 0.22);
 }
 
 .glassmorphism {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.08);
 }
 
 .glassmorphism-hover {
@@ -52,9 +55,9 @@ body {
 }
 
 .glassmorphism-hover:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(163, 230, 53, 0.3);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(163, 230, 53, 0.05);
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(101, 163, 13, 0.35);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.12), 0 0 20px rgba(101, 163, 13, 0.08);
   transform: translateY(-4px);
 }
 
@@ -63,13 +66,12 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #05070c;
+  background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.18);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #a3e635;
+  background: #65a30d;
 }
-

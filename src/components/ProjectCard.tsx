@@ -35,7 +35,8 @@ export default function ProjectCard({
           <img
             src={imageUrl}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:opacity-40 opacity-70"
+            className="w-full h-full object-cover opacity-100 transition-transform duration-700 ease-out group-hover:scale-105"
+            style={{ filter: "brightness(1.08) contrast(1.05) saturate(1.06)" }}
           />
         ) : (
           /* Premium Architectural Blueprint Mockup Background */
@@ -55,27 +56,27 @@ export default function ProjectCard({
       </div>
 
       {/* Glass overlay at the bottom */}
-      <div className="absolute inset-0 bg-gradient-to-t from-pitch-black via-pitch-black/60 to-transparent flex flex-col justify-end p-6 md:p-8 z-10">
+      <div className="absolute inset-0 bg-gradient-to-t from-[#020305]/62 via-[#020305]/12 to-transparent flex flex-col justify-end p-6 md:p-8 z-10">
         <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
           {/* Category & Location */}
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-widest uppercase bg-primary/10 text-primary border border-primary/20">
               {category}
             </span>
-            <span className="flex items-center gap-1 text-xs text-white/50">
+            <span className="flex items-center gap-1 text-xs text-[#f8fafc]/78">
               <MapPin className="w-3.5 h-3.5 text-primary/70" />
               <span>{location}</span>
             </span>
           </div>
 
           {/* Title */}
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors duration-300 flex items-center justify-between">
+          <h3 className="text-xl md:text-2xl font-bold text-[#f8fafc] mb-2 group-hover:text-primary transition-colors duration-300 flex items-center justify-between">
             <span>{title}</span>
-            <ArrowUpRight className="w-5 h-5 text-white/40 group-hover:text-primary transition-colors duration-300 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
+            <ArrowUpRight className="w-5 h-5 text-[#f8fafc]/60 group-hover:text-primary transition-colors duration-300 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
           </h3>
 
           {/* Short description - fades in on hover */}
-          <p className="text-sm text-white/60 leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-[80px] group-hover:opacity-100 transition-all duration-500 ease-in-out">
+          <p className="text-sm text-[#f8fafc]/78 leading-relaxed max-h-0 opacity-0 overflow-hidden group-hover:max-h-[80px] group-hover:opacity-100 transition-all duration-500 ease-in-out">
             {description}
           </p>
         </div>

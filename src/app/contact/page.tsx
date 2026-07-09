@@ -170,11 +170,11 @@ function ContactFormContent() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-4 rounded-xl bg-primary text-pitch-black font-bold tracking-wide hover:bg-primary-hover transition-colors flex items-center justify-center gap-2 disabled:opacity-50 neon-glow mt-2"
+        className="w-full py-4 rounded-xl bg-primary text-ink font-bold tracking-wide hover:bg-primary-hover transition-colors flex items-center justify-center gap-2 disabled:opacity-50 neon-glow mt-2"
       >
         {isSubmitting ? (
           <>
-            <div className="w-5 h-5 border-2 border-pitch-black border-t-transparent rounded-full animate-spin" />
+            <div className="w-5 h-5 border-2 border-ink border-t-transparent rounded-full animate-spin" />
             <span>Redirecting to WhatsApp...</span>
           </>
         ) : (

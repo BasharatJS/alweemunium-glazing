@@ -16,13 +16,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16">
           {/* Company Info */}
           <div className="flex flex-col gap-6">
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/" className="flex min-w-0 items-center gap-2 group">
               <BrandMark className="h-10 w-10 ring-1 ring-primary/30 transition-all duration-300 group-hover:ring-primary/70" />
-              <span className="flex flex-col leading-none">
-                <span className="text-lg font-bold tracking-tight text-white">
+              <span className="flex min-w-0 flex-col leading-tight">
+                <span className="text-base font-bold leading-tight tracking-tight text-white sm:text-lg">
                   {business.name}
                 </span>
-                <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+                <span className="mt-1 text-[10px] font-semibold uppercase leading-tight tracking-[0.16em] text-primary">
                   {business.tagline}
                 </span>
               </span>

@@ -19,7 +19,7 @@ export const viewport = {
 export const metadata: Metadata = {
   title: `${business.name} | ${business.tagline}`,
   description: `${business.name} provides aluminium architectural work including system windows, door partitions, bathroom doors, W/C louvers, curtain wall, structural glazing, ACP, shower cubicles, glass railings, and skylight canopy work in Pune.`,
-  keywords: "Bombay Alu Glaze, aluminium architectural work Pune, aluminium system windows, door partition, bathroom door, W/C window louvers, curtain wall, structural glazing, ACP work, frameless window, glass railing, skylight canopy",
+  keywords: "ALWEE ALUMINIUM & GLAZING, aluminium architectural work Pune, aluminium system windows, door partition, bathroom door, W/C window louvers, curtain wall, structural glazing, ACP work, frameless window, glass railing, skylight canopy",
   authors: [{ name: business.name }],
   robots: "index, follow",
 };

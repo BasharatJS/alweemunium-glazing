@@ -221,7 +221,7 @@ export default function ServicesPage() {
                   <div className="flex flex-wrap items-center gap-4 mt-2">
                     <Link
                       href={`/contact?service=${service.id}`}
-                      className="px-6 py-3 rounded-lg bg-primary text-pitch-black font-bold text-xs tracking-wide hover:bg-primary-hover transition-colors neon-glow"
+                      className="px-6 py-3 rounded-lg bg-primary text-ink font-bold text-xs tracking-wide hover:bg-primary-hover transition-colors neon-glow"
                     >
                       Inquire About {service.title}
                     </Link>

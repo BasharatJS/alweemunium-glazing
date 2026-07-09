@@ -1,5 +1,5 @@
 export const business = {
-  name: "Bombay Alu Glaze",
+  name: "ALWEE ALUMINIUM & GLAZING",
   tagline: "Aluminium Architectural Work",
   email: "alweemunium786@gmail.com",
   phone: "+91 93245 21022",

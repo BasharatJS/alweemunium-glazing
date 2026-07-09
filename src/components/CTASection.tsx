@@ -46,7 +46,7 @@ export default function CTASection() {
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
             <Link
               href="/contact"
-              className="px-8 py-4 rounded-xl bg-primary text-pitch-black font-bold tracking-wide hover:bg-primary-hover shadow-lg hover:shadow-primary/20 transition-all duration-300 flex items-center gap-2 group neon-glow"
+              className="px-8 py-4 rounded-xl bg-primary text-ink font-bold tracking-wide hover:bg-primary-hover shadow-lg hover:shadow-primary/20 transition-all duration-300 flex items-center gap-2 group neon-glow"
             >
               <span>Get Free Consultation</span>
               <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
